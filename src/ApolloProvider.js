@@ -8,10 +8,9 @@ import {
 } from "@apollo/client";
 
 import { setContext } from "@apollo/client/link/context";
-import packageJson from '../package.json';
 
 const httpLink = createHttpLink({
-    uri: packageJson.proxy,
+    uri: process.env.REACT_APP_HTTP_PROXY,
 });
 
 const authLink = setContext(( _, { headers }) => {
