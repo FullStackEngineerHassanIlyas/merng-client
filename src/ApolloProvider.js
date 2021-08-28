@@ -8,9 +8,10 @@ import {
 } from "@apollo/client";
 
 import { setContext } from "@apollo/client/link/context";
+import packageJson from '../package.json';
 
 const httpLink = createHttpLink({
-    uri: 'http://localhost:5000',
+    uri: packageJson.proxy,
 });
 
 const authLink = setContext(( _, { headers }) => {
